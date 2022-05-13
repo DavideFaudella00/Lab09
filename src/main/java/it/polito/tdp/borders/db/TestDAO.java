@@ -13,5 +13,9 @@ public class TestDAO {
 
 		System.out.println("Lista di tutte le nazioni:");
 		List<Country> countries = dao.loadAllCountries();
+		List<Border> countrie = dao.getCountryPairs(2006);
+		for(Border b: countrie) {
+			System.out.println(b.toString());
+		}
 	}
 }
