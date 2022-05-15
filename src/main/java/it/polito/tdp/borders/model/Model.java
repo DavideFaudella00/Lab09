@@ -22,7 +22,7 @@ public class Model {
 
 	public void creaGrafo(int anno) {
 		graph = new SimpleGraph<Country, DefaultEdge>(DefaultEdge.class);
-		countries = dao.getCountryByYears(anno);
+		// countries = dao.getCountryByYears(anno);
 
 		for (Border b : dao.getCountryPairs(anno)) {
 			graph.addVertex(b.getC1());
@@ -30,10 +30,15 @@ public class Model {
 			graph.addEdge(b.getC1(), b.getC2());
 			aggiornaDegree();
 		}
-		System.out.println(graph.vertexSet().size());
-		System.out.println(graph.edgeSet().size());
+		countries = new ArrayList<>(graph.vertexSet());
+		
+		System.out.println("ARCHI: ");
 		System.out.println(graph.edgeSet());
-		System.out.println(graph.vertexSet());
+		System.out.println("\nVERTICI e grado: ");
+		System.out.println(this.getV());
+		System.out.println("NUM VERTICI:" + graph.vertexSet().size());
+		System.out.println("NUM ARCHI:" + graph.edgeSet().size());
+		System.out.println("NUM COMP CONNESSE:" + this.getNumberOfConnectedComponents());
 	}
 
 	public String getV() {

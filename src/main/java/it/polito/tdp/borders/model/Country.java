@@ -69,7 +69,7 @@ public class Country {
 
 	@Override
 	public String toString() {
-		return stateName + "\n";
+		return stateName;
 	}
 
 	public String getNomeDegree() {
