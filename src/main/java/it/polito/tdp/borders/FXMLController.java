@@ -52,9 +52,13 @@ public class FXMLController {
 		txtResult.appendText(String.format("Numero componenti connesse: %d\n", model.getNumberOfConnectedComponents()));
 		txtResult.appendText(model.getV());
 	}
-	
+
 	@FXML
 	void doTrovaRaggiungibili(ActionEvent event) {
+		txtResult.clear();
+		Country start = cmbNazione.getSelectionModel().getSelectedItem();
+		List<Country> l = model.doIteratore(start);
+		txtResult.appendText(l.toString());
 	}
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
